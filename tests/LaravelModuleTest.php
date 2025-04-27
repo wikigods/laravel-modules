@@ -8,7 +8,7 @@ use Modules\Recipe\Providers\RecipeServiceProvider;
 use Nwidart\Modules\Contracts\ActivatorInterface;
 use Nwidart\Modules\Json;
 
-class ModuleTest extends BaseTestCase
+class LaravelModuleTest extends BaseTestCase
 {
     /**
      * @var TestingModule
@@ -221,7 +221,7 @@ class ModuleTest extends BaseTestCase
 
         try {
             app('foo');
-            $this->assertTrue(false, "app('foo') should throw an exception.");
+            $this->fail("app('foo') should throw an exception.");
         } catch (\Exception $e) {
             $this->assertEquals('Target class [foo] does not exist.', $e->getMessage());
         }

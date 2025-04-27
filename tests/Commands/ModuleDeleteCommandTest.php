@@ -1,8 +1,9 @@
 <?php
 
-namespace Nwidart\Modules\Commands;
+namespace Nwidart\Modules\Tests\Commands;
 
 use Nwidart\Modules\Activators\FileActivator;
+use Nwidart\Modules\Contracts\RepositoryInterface;
 use Nwidart\Modules\Tests\BaseTestCase;
 use Spatie\Snapshots\MatchesSnapshots;
 
@@ -24,6 +25,11 @@ class ModuleDeleteCommandTest extends BaseTestCase
         parent::setUp();
         $this->finder = $this->app['files'];
         $this->activator = new FileActivator($this->app);
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
     }
 
     /** @test */
